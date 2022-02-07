@@ -56,6 +56,7 @@ class HomeScreenViewController: UIViewController{
     private func configureSideMenu(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         sideMenuVC = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as? SideMenuViewController
+        sideMenuVC.user = user
         sideMenuVC.view.backgroundColor = .systemRed
         sideMenuNC = .init(rootViewController: sideMenuVC)
         sideMenuNC.leftSide = true

@@ -14,30 +14,22 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var sideMenuView: UIView!
     @IBOutlet weak var logOutButtonTapped: UIButton!
     
-    
     weak var homeDelegate: HomeScreenViewController!
-    
-    var users: Set<User> = Set()
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.isUserInteractionEnabled = true
         self.usernameTextLabel.isUserInteractionEnabled = true
-        usernameTextLabel.text = "Hi Anwesh!"
-        
-        if let users = UserDefaultsManager.getAllUsersDataFromPlist(){
-            self.users = users
-        }
-        usernameTextLabel.text = "Hi \(users.first!.name)!"
+        usernameTextLabel.text = "Hola!!"
+        usernameTextLabel.text = "Hi \(user.name)!"
         
     }
     
 
     @IBAction func onLogOutButtonTapped(_ sender: Any) {
-        print("Working...")
-       
+
         self.dismiss(animated: true){
-            
             self.homeDelegate.navigationController?.popToRootViewController(animated: true)
         }
     }
